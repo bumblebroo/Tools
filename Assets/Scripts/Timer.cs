@@ -20,10 +20,10 @@ public class Timer : MonoBehaviour
 
     public void StartTimer() {
         StopAllCoroutines();
-        StartCoroutine()
+        StartCoroutine(Clock());
     }
 
-    private IEnumerator Timer() {
+    private IEnumerator Clock() {
         if (displayText) {
             text.gameObject.SetActive(true);
         }
@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
             time -= Time.deltaTime;
 
             if (displayText) {
-                text.text = Mathf.Ceil(time);
+                text.text = Mathf.Ceil(time).ToString();
             }
 
             yield return new WaitForEndOfFrame();
